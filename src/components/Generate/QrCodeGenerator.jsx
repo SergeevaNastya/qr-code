@@ -23,11 +23,21 @@ export const QrCodeGenerator = () => {
 
     return (
         <div className={s.container}>
-            {result != '' && (
-                <QRCodeSVG value={result}/>
-            )} 
-            <input className={s.input_qr} placeholder="Введите текст" type="text" value={value} onChange={onChangeHandler}/>
-            <button className={s.button_qr} type="button" onClick={onClickHandler}>Сгенерировать QR</button>
+            {result !== '' && (
+                <div>
+                    <QRCodeSVG value={result} size={200} level="H" />
+                </div> 
+            )}
+            <input
+                type="text"
+                value={value}
+                placeholder="Введите текст..."
+                onChange={onChangeHandler}
+                className={s.input_qr}
+            />
+            <button type="button" className={s.button_qr} onClick={onClickHandler}>
+                Сгенерировать QR
+            </button>
         </div>
     );
 }
